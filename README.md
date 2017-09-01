@@ -61,12 +61,11 @@ foreach ($bing->getImages() as $image) {
 require __DIR__ . "/vendor/autoload.php";
 // Here we go
 use BingPhoto\BingPhoto;
-$bing = new BingPhoto(BingPhoto::TODAY, 1, 'de-DE', BingPhoto::RESOLUTION_HIGH);
-foreach ($bing->getImages() as $image)
-{
-    $info = getimagesize($image['url']);
-    header("Content-type: " . $info["mime"]);
-    readfile($image['url']);
-    // exit();
-}
+$bing       = new BingPhoto(BingPhoto::TODAY, 1, 'de-DE', BingPhoto::RESOLUTION_HIGH);
+$current    = $bing->getImage();
+$info       = getimagesize($current['url']);
+
+header("Content-type: " . $info["mime"]);
+readfile($current['url']);
+die();
 ```
