@@ -1,6 +1,10 @@
 <?php
-require('BingPhoto.php');
 
+use BingPhoto\BingPhoto;
+
+/**
+ * Class BingPhotoTest
+ */
 class BingPhotoTest extends PHPUnit_Framework_TestCase
 {
 

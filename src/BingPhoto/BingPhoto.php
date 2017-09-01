@@ -1,11 +1,12 @@
 <?php
 
+namespace BingPhoto;
+
 /**
  * A simple class which fetches Bing's image of the day with meta data
  */
 class BingPhoto
 {
-
     // Constants
     const TOMORROW = -1;
     const TODAY = 0;

@@ -35,14 +35,38 @@ The class has some optional parameters to control various options:
 
 ```php
 // Fetches two images of the day in high resolution from the American Bing portal
+// Composer autoloader first
+require __DIR__ . "/vendor/autoload.php";
+// Here we go
+use BingPhoto\BingPhoto;
 $bing = new BingPhoto(BingPhoto::YESTERDAY, 2);
 $images = $bing->getImages();
 ```
 
 ```php
 // Fetches three images of the day in low resolution, starting yesterday from the French Bing portal
+// Composer autoloader first
+require __DIR__ . "/vendor/autoload.php";
+// Here we go
+use BingPhoto\BingPhoto;
 $bing = new BingPhoto(BingPhoto::YESTERDAY, 3, 'fr-FR', BingPhoto::RESOLUTION_LOW);
 foreach ($bing->getImages() as $image) {
     printf('<img src="%s">', $image['url']);
+}
+```
+
+```php
+// Output the image of the day as an image in high resolution
+// Composer autoloader first
+require __DIR__ . "/vendor/autoload.php";
+// Here we go
+use BingPhoto\BingPhoto;
+$bing = new BingPhoto(BingPhoto::TODAY, 1, 'de-DE', BingPhoto::RESOLUTION_HIGH);
+foreach ($bing->getImages() as $image)
+{
+    $info = getimagesize($image['url']);
+    header("Content-type: " . $info["mime"]);
+    readfile($image['url']);
+    // exit();
 }
 ```

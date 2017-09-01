@@ -1,0 +1,29 @@
+{
+    "name":         "telekommander/bingdailyphoto",
+    "version":      "1.0.0",
+    "description":  "BingPhoto is a simple PHP class to fetch Bing's image of the day with meta data.",
+    "type":         "library",
+    "license":      "MIT",
+    "keywords":     ["bing"],
+    "authors": [
+        {
+            "name":     "Jonathan Gruber",
+            "email":    "gruberjonathan@gmail.com",
+            "homepage": "http://grubersjoe.de"
+        },
+        {
+            "name":     "Thomas Meschke",
+            "email":    "mail@lokalnetz.com",
+            "homepage": "http://lokalnetz.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bingphoto\\": "src/"
+        },
+        "classmap": ["src/"]
+    }
+}
